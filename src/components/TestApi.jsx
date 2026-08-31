@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
 function TestApi() {
   const [message, setMessage] = useState('...Loading...')
   const [error, setError] = useState('')
@@ -9,7 +11,9 @@ function TestApi() {
 
     async function fetchMessage() {
       try {
-        const response = await fetch('http://localhost:3000/api/hello')
+        const response = await fetch(`${API_URL}/api/hello`, {
+          credentials: 'include',
+        })
 
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`)

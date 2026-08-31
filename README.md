@@ -1,3 +1,15 @@
+# React Item CRUD Frontend
+
+This Vite React application includes JWT-cookie authentication and an item CRUD interface. The item page supports create, list, update, and soft delete operations.
+
+## Deletion evidence
+
+Screenshots are available in the [`screenshots`](./screenshots) directory:
+
+1. Active item list before deletion
+2. Soft-delete confirmation
+3. Active list after soft deletion
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.

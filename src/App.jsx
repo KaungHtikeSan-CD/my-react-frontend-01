@@ -1,13 +1,21 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import ItemCrud from './components/ItemCrud'
 import TestApi from './components/TestApi'
+import Home from './Home'
+import Login from './Login'
 import './App.css'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/test_api" element={<TestApi />} />
-        <Route path="*" element={<Navigate to="/test_api" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />}>
+          <Route index element={<Navigate to="item" replace />} />
+          <Route path="item" element={<ItemCrud />} />
+          <Route path="test_api" element={<TestApi />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   )
