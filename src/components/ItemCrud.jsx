@@ -151,7 +151,7 @@ export default function ItemCrud() {
           label="Quantity"
           name="quantity"
           type="number"
-          inputProps={{ min: 0 }}
+          slotProps={{ htmlInput: { min: 0 } }}
           value={form.quantity}
           onChange={updateField}
           required
@@ -160,7 +160,7 @@ export default function ItemCrud() {
           label="Price"
           name="price"
           type="number"
-          inputProps={{ min: 0, step: '0.01' }}
+          slotProps={{ htmlInput: { min: 0, step: '0.01' } }}
           value={form.price}
           onChange={updateField}
           required
