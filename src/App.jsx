@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import AuthDashboard from './components/AuthDashboard'
 import ItemCrud from './components/ItemCrud'
 import TestApi from './components/TestApi'
 import Home from './Home'
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />}>
-          <Route index element={<Navigate to="item" replace />} />
+          <Route index element={<AuthDashboard />} />
           <Route path="item" element={<ItemCrud />} />
           <Route path="test_api" element={<TestApi />} />
         </Route>

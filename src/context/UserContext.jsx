@@ -21,15 +21,18 @@ export function UserProvider({ children }) {
 
       if (result.ok) {
         const data = await result.json()
-        setUser(data.user)
+        setUser(data)
         setIsLoggedIn(true)
+        return true
       } else {
         setUser(null)
         setIsLoggedIn(false)
+        return false
       }
     } catch {
       setUser(null)
       setIsLoggedIn(false)
+      return false
     } finally {
       setIsInitializing(false)
     }
@@ -46,14 +49,12 @@ export function UserProvider({ children }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       })
-      const data = await result.json()
 
       if (result.ok) {
-        setUser(data.user)
-        setIsLoggedIn(true)
-        return true
+        return await me()
       }
 
+      const data = await result.json()
       setUser(null)
       setIsLoggedIn(false)
       setIsLoginError(true)

@@ -17,7 +17,7 @@ export default function Login() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
-    if (isLoggedIn && !isInitializing) navigate('/item', { replace: true })
+    if (isLoggedIn && !isInitializing) navigate('/', { replace: true })
   }, [isLoggedIn, isInitializing, navigate])
 
   async function handleSubmit(event) {
@@ -25,7 +25,7 @@ export default function Login() {
     setIsSubmitting(true)
     const success = await login(email, password)
     setIsSubmitting(false)
-    if (success) navigate('/item', { replace: true })
+    if (success) navigate('/', { replace: true })
   }
 
   if (isInitializing) return null
