@@ -32,6 +32,11 @@ export default function Home() {
           <Button color="inherit" onClick={() => navigate('/item')}>
             Item
           </Button>
+          {(user?.id === '-1' || user?._id === '-1') && (
+            <Button color="inherit" onClick={() => navigate('/user')}>
+              User
+            </Button>
+          )}
           <Button color="inherit" onClick={handleLogout}>
             Logout
           </Button>

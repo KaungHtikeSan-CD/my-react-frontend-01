@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import AuthDashboard from './components/AuthDashboard'
 import ItemCrud from './components/ItemCrud'
 import TestApi from './components/TestApi'
+import UserManagement from './components/UserManagement'
 import Home from './Home'
 import Login from './Login'
 import './App.css'
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />}>
           <Route index element={<AuthDashboard />} />
           <Route path="item" element={<ItemCrud />} />
+          <Route path="user" element={<UserManagement />} />
           <Route path="test_api" element={<TestApi />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
